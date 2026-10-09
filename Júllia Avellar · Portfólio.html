@@ -1,0 +1,186 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Júllia Avellar · Portfólio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: uma coluna editorial; cada projeto se apresenta como uma requisição HTTP à sua própria API pessoal */
+:root{
+  --paper:#F1F3EF; --surface:#FFFFFF; --ink:#18201D; --muted:#5B6661; --line:#D6DCD7;
+  --accent:#0F6E5D; --accent-soft:#DCEDE8; --ok:#9A6A00;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#121816; --surface:#19211E; --ink:#E7EDEA; --muted:#9AA7A1; --line:#2C3632;
+  --accent:#4FC3A8; --accent-soft:#1C3530; --ok:#E2B341; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#121816; --surface:#19211E; --ink:#E7EDEA; --muted:#9AA7A1; --line:#2C3632;
+  --accent:#4FC3A8; --accent-soft:#1C3530; --ok:#E2B341; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;padding-inline:20px;padding-block:0 48px}
+.wrap{max-width:860px;margin-inline:auto;display:flex;flex-direction:column;gap:64px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* hero */
+header{padding-top:56px;display:flex;flex-direction:column;gap:20px}
+.prompt{font-family:var(--mono);font-size:14px;color:var(--muted)}
+.prompt b{color:var(--accent);font-weight:500}
+h1{font-size:clamp(44px,9vw,92px);font-weight:800;letter-spacing:-.03em}
+h1 span{color:var(--accent)}
+.lead{font-size:clamp(18px,2.4vw,21px);max-width:38ch;color:var(--ink)}
+.links{display:flex;flex-wrap:wrap;gap:10px 18px;font-family:var(--mono);font-size:14px;align-items:center}
+.links a{text-decoration:none;border-bottom:1px solid var(--accent)}
+.email{display:inline-flex;gap:8px;align-items:center}
+.email code{font-family:var(--mono);user-select:all}
+button.copy{font:500 12px var(--mono);color:var(--accent);background:var(--accent-soft);border:0;border-radius:4px;padding:4px 8px;cursor:pointer}
+.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+
+section{display:flex;flex-direction:column;gap:24px}
+h2{font-size:clamp(28px,4.5vw,40px);font-weight:700;letter-spacing:-.02em}
+
+/* stack */
+.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px}
+.stack div{display:flex;flex-direction:column;gap:8px;min-width:0}
+.stack ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.stack li{font-family:var(--mono);font-size:13px;padding:3px 9px;border:1px solid var(--line);border-radius:999px}
+.stack li.core{border-color:var(--accent);color:var(--accent)}
+
+/* projetos */
+.projects{display:flex;flex-direction:column}
+.proj{display:grid;grid-template-columns:1fr;gap:10px;padding-block:28px;border-top:1px solid var(--line)}
+.proj:last-child{border-bottom:1px solid var(--line)}
+.req{font-family:var(--mono);font-size:13px;display:flex;flex-wrap:wrap;gap:6px 12px;color:var(--muted)}
+.req .verb{color:var(--accent);font-weight:500}
+.req .code{color:var(--ok);font-weight:500}
+.proj h3{font-size:clamp(24px,3.4vw,30px);font-weight:700}
+.proj p{margin:0;max-width:62ch;min-width:0}
+.meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.meta a{font-weight:500}
+.badge{font-family:var(--mono);font-size:12px;background:var(--accent-soft);color:var(--accent);padding:2px 8px;border-radius:4px;align-self:start;justify-self:start}
+
+/* linha do tempo */
+.timeline{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:auto 1fr;gap:14px 24px}
+.timeline .y{font-family:var(--mono);font-size:14px;color:var(--accent);font-variant-numeric:tabular-nums;padding-top:2px}
+.timeline .t{min-width:0}
+.timeline .t b{font-weight:600}
+.timeline .t span{display:block;color:var(--muted);font-size:15px}
+
+/* contato */
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.contact p{margin:0;max-width:56ch}
+footer{font-family:var(--mono);font-size:12px;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.dot{animation:pulse 2.4s ease-in-out infinite}@keyframes pulse{50%{opacity:.35}}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="prompt"><b>GET</b> /juravellar &nbsp;→&nbsp; 200 OK</div>
+    <h1>Júllia<br>Avellar<span>.</span></h1>
+    <p class="lead">Desenvolvedora de software júnior. Construo APIs em Java com Spring Boot e interfaces em React e TypeScript, de ponta a ponta.</p>
+    <div class="status"><span class="dot" aria-hidden="true"></span>Aberta a vagas júnior · Goiânia, GO · presencial, híbrido ou remoto</div>
+    <div class="links">
+      <a href="https://github.com/juravellar">github.com/juravellar</a>
+      <a href="https://www.linkedin.com/in/j%C3%BAllia-r-de-avellar/">LinkedIn</a>
+      <span class="email"><code id="mail">julliaravellar@gmail.com</code><button class="copy" id="copyMail" type="button">copiar</button></span>
+    </div>
+  </header>
+
+  <section aria-labelledby="stack-h">
+    <div class="label">01 · Stack</div>
+    <h2 id="stack-h">Com o que eu trabalho</h2>
+    <div class="stack">
+      <div><div class="label">Back-end</div><ul><li class="core">Java 17</li><li class="core">Spring Boot</li><li>WebFlux</li><li>Spring Data · R2DBC</li><li>APIs REST</li><li>OpenAPI / Swagger</li><li>Maven</li></ul></div>
+      <div><div class="label">Front-end</div><ul><li class="core">React</li><li class="core">TypeScript</li><li>Next.js</li><li>Tailwind CSS</li><li>Radix UI</li><li>React Hook Form · Zod</li></ul></div>
+      <div><div class="label">Dados &amp; infra</div><ul><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>Drizzle ORM</li><li>Docker</li><li>Git</li><li>Vercel</li></ul></div>
+      <div><div class="label">Práticas</div><ul><li>Clean Code</li><li>SOLID</li><li>Testes unitários</li><li>DTOs</li><li>Code review</li></ul></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="proj-h">
+    <div class="label">02 · Projetos</div>
+    <h2 id="proj-h">Trabalhos selecionados</h2>
+    <div class="projects">
+
+      <article class="proj">
+        <div class="req"><span class="verb">GET</span><span>/projetos/doutor-agenda</span><span class="code">200 · em produção</span></div>
+        <h3>Doutor Agenda</h3>
+        <span class="badge">Freelancer · jun 2025</span>
+        <p>SaaS para clínicas e profissionais de saúde marcarem consultas. Fiz do modelo de dados à interface: banco PostgreSQL com migrações em Drizzle ORM, telas em Next.js com componentes Radix UI e assinatura paga com Stripe, incluindo os webhooks que confirmam o pagamento.</p>
+        <div class="meta"><span>Next.js · TypeScript · PostgreSQL · Stripe</span><a href="https://doutor-agenda-gold.vercel.app">ver online</a><a href="https://github.com/juravellar/doutor-agenda">código</a></div>
+      </article>
+
+      <article class="proj">
+        <div class="req"><span class="verb">GET</span><span>/projetos/venuewizard</span><span class="code">200</span></div>
+        <h3>VenueWizard</h3>
+        <span class="badge">API reativa · 2023</span>
+        <p>API REST para cadastro de locais, reativa da camada web até o banco. Tem filtros dinâmicos com Query By Example, auditoria de criação e alteração, slugs automáticos, testes automatizados, documentação Swagger e imagem Docker.</p>
+        <div class="meta"><span>Java 17 · Spring WebFlux · R2DBC · Docker</span><a href="https://github.com/juravellar/VenueWizard">código</a></div>
+      </article>
+
+      <article class="proj">
+        <div class="req"><span class="verb">GET</span><span>/projetos/to-do-list</span><span class="code">200</span></div>
+        <h3>To-do List API</h3>
+        <span class="badge">API REST · 2023</span>
+        <p>API de gestão de tarefas com CRUD completo, filtros, DTOs e documentação OpenAPI. Roda com PostgreSQL, MySQL ou H2, localmente ou em contêiner.</p>
+        <div class="meta"><span>Java 17 · Spring Boot · R2DBC · Swagger</span><a href="https://github.com/juravellar/to-do-list">código</a></div>
+      </article>
+
+      <article class="proj">
+        <div class="req"><span class="verb">GET</span><span>/projetos/stockbridge</span><span class="code">200</span></div>
+        <h3>Stockbridge</h3>
+        <span class="badge">Front-end · 2025</span>
+        <p>Landing page responsiva em Next.js, organizada em componentes e hooks reutilizáveis, com formulários validados por React Hook Form e Zod e gráficos com Recharts.</p>
+        <div class="meta"><span>Next.js · React · Tailwind · Radix UI</span><a href="https://github.com/juravellar/stockbridge-landing">código</a></div>
+      </article>
+
+      <article class="proj">
+        <div class="req"><span class="verb">GET</span><span>/projetos/logic-resolver-ai</span><span class="code">201 · 3º lugar</span></div>
+        <h3>Logic Resolver AI</h3>
+        <span class="badge">Fematec UNIGOIÁS · mar 2023</span>
+        <p>Ferramenta de apoio à resolução de problemas de lógica, premiada com o 3º lugar na categoria Ensino da Mostra de Trabalhos Científicos do UNIGOIÁS.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="tl-h">
+    <div class="label">03 · Trajetória</div>
+    <h2 id="tl-h">Até aqui</h2>
+    <ul class="timeline">
+      <li class="y">2023</li><li class="t"><b>Início do bacharelado em Engenharia de Software</b><span>UNIGOIÁS, Goiânia. Primeiras APIs com Spring Boot e o 3º lugar na Fematec.</span></li>
+      <li class="y">2025</li><li class="t"><b>Primeiro SaaS em produção</b><span>Doutor Agenda, entregue como freelancer, com pagamentos reais via Stripe.</span></li>
+      <li class="y">2026</li><li class="t"><b>Conclusão da graduação</b><span>Estudando microsserviços, Kafka, AWS e CI/CD.</span></li>
+    </ul>
+  </section>
+
+  <section class="contact" aria-labelledby="ct-h">
+    <h2 id="ct-h">Vamos conversar</h2>
+    <p>Procuro uma vaga júnior em um time de produto, em back-end Java ou front-end React. Falo português nativo e inglês avançado.</p>
+    <div class="links">
+      <span class="email"><code>julliaravellar@gmail.com</code></span>
+      <span>(62) 98291-0476</span>
+      <a href="https://github.com/juravellar">GitHub</a>
+      <a href="https://www.linkedin.com/in/j%C3%BAllia-r-de-avellar/">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>© 2026 Júllia Rodrigues de Avellar</footer>
+</div>
+
+<script>
+document.getElementById('copyMail').addEventListener('click',function(e){
+  var b=e.currentTarget, t=document.getElementById('mail').textContent;
+  function done(){b.textContent='copiado';setTimeout(function(){b.textContent='copiar'},1600)}
+  try{navigator.clipboard.writeText(t).then(done,function(){sel()})}catch(_){sel()}
+  function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('mail'));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='selecionado'}
+});
+</script>
+
+</body></html>
